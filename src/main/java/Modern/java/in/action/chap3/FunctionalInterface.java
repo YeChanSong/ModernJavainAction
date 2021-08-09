@@ -25,7 +25,7 @@ public class FunctionalInterface {
     public String processFile(BufferedReaderProcessor b) throws IOException {
         File file = new File(".");
         try (BufferedReader br = new BufferedReader(new FileReader(file.getCanonicalFile()+"/src/main/resources/text.txt"))) {
-            return br.readLine();
+            return b.process(br);
         }
     }
 }
