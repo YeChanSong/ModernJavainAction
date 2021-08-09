@@ -1,5 +1,10 @@
 package Modern.java.in.action.chap3;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class FunctionalInterface {
     public static void functionalInterface(){
         Runnable r1 = () -> System.out.println("Hello World");
@@ -15,5 +20,12 @@ public class FunctionalInterface {
     }
     public static void process(Runnable r){
         r.run();
+    }
+
+    public String processFile() throws IOException {
+        File file = new File(".");
+        try (BufferedReader br = new BufferedReader(new FileReader(file.getCanonicalFile()+"/src/main/resources/text.txt"))) {
+            return br.readLine();
+        }
     }
 }
