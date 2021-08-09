@@ -22,10 +22,14 @@ public class FunctionalInterface {
         r.run();
     }
 
-    public String processFile() throws IOException {
+    public String processFile(BufferedReaderProcessor b) throws IOException {
         File file = new File(".");
         try (BufferedReader br = new BufferedReader(new FileReader(file.getCanonicalFile()+"/src/main/resources/text.txt"))) {
             return br.readLine();
         }
     }
+}
+@java.lang.FunctionalInterface
+interface BufferedReaderProcessor{
+    String process(BufferedReader b) throws IOException;
 }

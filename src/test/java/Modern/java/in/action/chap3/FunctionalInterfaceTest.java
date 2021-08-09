@@ -16,6 +16,7 @@ public class FunctionalInterfaceTest {
     @Test
     public void fileTest() throws IOException {
         FunctionalInterface fi = new FunctionalInterface();
-        assertThat(fi.processFile() == "11111");
+        assertThat(fi.processFile((BufferedReader br) -> br.readLine())).isEqualTo("111111");
     }
+
 }
